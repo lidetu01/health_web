@@ -52,34 +52,89 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-       //...hide service cards after the first 3
-    
-    const servicesToggle = document.querySelector("#services-toggle");
+    //...hide service cards after the first 3 
+    const ServiceToggleBtn = document.getElementById("services-toggle"); 
+    const visibleServiceCards = 3; // Change to 2 if you want only two cards visible initially 
+    let expandedService = false; 
 
-    serviceCards.forEach((card, index) => {
-    if (index >= 3) {
-        card.classList.add("hidden-card");
-      }
+    // Show only the first visibleCards initially 
+    serviceCards.forEach((card, index) => { 
+        if (index < visibleServiceCards) { 
+            card.classList.add("show"); 
+        } 
+    }); 
+
+    ServiceToggleBtn.addEventListener("click", () => { 
+        expandedService = !expandedService; 
+        if (expandedService) { 
+            serviceCards.forEach(card => card.classList.add("show")); 
+            ServiceToggleBtn.textContent = "See Less services"; 
+        } else { 
+            serviceCards.forEach((card, index) => { 
+                if (index < visibleServiceCards) { 
+                    card.classList.add("show"); 
+                } else { 
+                    card.classList.remove("show"); 
+                } 
+            }); 
+            ServiceToggleBtn.textContent = "See More services"; 
+            // Scroll back to the services section 
+            document.getElementById("services").scrollIntoView({ behavior: "smooth" }); 
+        } 
     });
+    
 
-    servicesToggle.addEventListener("click", () => {
+       // doctors Read More / Read Less
 
-    serviceCards.forEach((card, index) => {
-        if (index >= 3) {
-            card.classList.toggle("hidden-card");
+      const doctorCards = document.querySelectorAll(".doctor-card");
+      const toggleBtn = document.getElementById("doctors-toggle");
+
+       const visibleCards = 3; 
+       let expanded = false;
+
+       // Show only the first visibleCards initially
+      doctorCards.forEach((card, index) => {
+        if (index < visibleCards) {
+            card.classList.add("show");
         }
       });
 
-    if (servicesToggle.textContent === "View More Services") {
-        servicesToggle.textContent = "View Less Services";
-    } else {
-        servicesToggle.textContent = "View More Services";
-    }
+    toggleBtn.addEventListener("click", () => {
+        expanded = !expanded;
 
-});
-   
+        if (expanded) {
+            doctorCards.forEach(card => card.classList.add("show"));
+            toggleBtn.textContent = "See Less Doctors";
+        } else {
+            doctorCards.forEach((card, index) => {
+                if (index < visibleCards) {
+                    card.classList.add("show");
+                } else {
+                    card.classList.remove("show");
+                }
+            });
+            toggleBtn.textContent = "See More Doctors";
+
+            // Scroll back to the doctors section
+            document.getElementById("doctors").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+      });
 
 
 
 
-});
+
+
+
+
+
+
+
+
+
+    });
+
+
+

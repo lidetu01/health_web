@@ -311,6 +311,7 @@ nav a:hover::after {
     }
     
 .service-card {
+    display: none;
     background-color: var(--white);
     border-radius: var(--radius);
     overflow: hidden;
@@ -319,8 +320,31 @@ nav a:hover::after {
     border: 1px solid var(--border-color);
    }
 
-.hidden-card {
+/* Hide all doctor cards by default */
+.services-grid .service-card {
     display: none;
+}
+
+    /* Show visible cards */
+.services-grid .service-card.show {
+    display: block;
+   }
+
+   #services-toggle {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-color);
+    color:var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#services-toggle:hover {
+    background: var(--primary-dark);
     }
 
 
@@ -413,6 +437,34 @@ nav a:hover::after {
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
    }
+
+   /* Hide all doctor cards by default */
+.doctors-grid .doctor-card {
+    display: none;
+}
+
+    /* Show visible cards */
+.doctors-grid .doctor-card.show {
+    display: block;
+   }
+
+   #doctors-toggle {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-color);
+    color:var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#doctors-toggle:hover {
+    background: var(--primary-dark);
+    }
+
 
 .doctor-card:hover {
     transform: translateY(-6px);
