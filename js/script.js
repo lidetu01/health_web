@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //...hide service cards after the first 3 
     const ServiceToggleBtn = document.getElementById("services-toggle"); 
-    const visibleServiceCards = 2; // Change to 2 if you want only two cards visible initially 
+    const visibleServiceCards = 3; // Change to 2 if you want only two cards visible initially 
     let expandedService = false; 
 
     // Show only the first visibleCards initially 
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const doctorCards = document.querySelectorAll(".doctor-card");
       const toggleBtn = document.getElementById("doctors-toggle");
 
-       const visibleCards = 2; 
+       const visibleCards = 3; 
        let expanded = false;
 
        // Show only the first visibleCards initially
